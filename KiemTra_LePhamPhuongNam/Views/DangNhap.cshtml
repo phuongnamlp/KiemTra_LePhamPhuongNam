@@ -1,0 +1,28 @@
+﻿@model KiemTra_LePhamPhuongNam.Models.SinhVien
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đăng Nhập</h2>
+<th> Mã sinh viên </th>
+    @Html.ValidationSummary(true, "Mã Sinh Viên", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaSV, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaSV, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaSV, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "ListSinhVien")
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
